@@ -1,0 +1,270 @@
+"use client"
+
+import React from "react"
+
+import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
+import Image from "next/image"
+import { Mail, MapPin, Phone, Facebook, Instagram, Twitter } from "lucide-react"
+import { useState } from "react"
+
+const contactInfo = [
+  {
+    icon: Mail,
+    title: "Email",
+    subtitle: "General Inquiries",
+    value: "info@iaffa.org.au",
+    href: "mailto:info@iaffa.org.au",
+  },
+  {
+    icon: MapPin,
+    title: "Office Address",
+    subtitle: "Visit Us",
+    value: "123 Festival Street, Sydney NSW 2000, Australia",
+    href: null,
+  },
+  {
+    icon: Phone,
+    title: "Phone",
+    subtitle: "Office Hours",
+    value: "+61 2 3456 7890",
+    href: "tel:+61234567890",
+  },
+]
+
+const departmentContacts = [
+  { title: "Film Submissions", email: "submissions@iaffa.org.au" },
+  { title: "Sponsorship & Partnerships", email: "partners@iaffa.org.au" },
+  { title: "Media & Press", email: "press@iaffa.org.au" },
+  { title: "Volunteers", email: "volunteers@iaffa.org.au" },
+  { title: "Tickets & Box Office", email: "tickets@iaffa.org.au" },
+  { title: "General Inquiries", email: "info@iaffa.org.au" },
+]
+
+const subjectOptions = [
+  "General Inquiry",
+  "Film Submissions",
+  "Sponsorship & Partnerships",
+  "Media & Press",
+  "Volunteering",
+  "Tickets & Box Office",
+  "Other",
+]
+
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "General Inquiry",
+    message: "",
+  })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log(formData)
+  }
+
+  return (
+    <main className="min-h-screen bg-background">
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/gala-event.jpg"
+            alt="Theater audience"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-eerie-black via-eerie-black/90 to-eerie-black" />
+        </div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-champagne mb-6">
+            Contact Us
+          </h1>
+          <p className="text-champagne/70 text-lg max-w-2xl mx-auto">
+            Get in touch with the International Arab Film Festival of Australia
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-24 bg-background">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-champagne">
+              Send Us a Message
+            </h2>
+          </div>
+          <form onSubmit={handleSubmit} className="glass-card p-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label htmlFor="name" className="block text-champagne/70 text-sm mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full bg-eerie-black/50 border border-primary/20 px-4 py-3 text-champagne placeholder-champagne/30 focus:border-primary focus:outline-none transition-colors"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-champagne/70 text-sm mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full bg-eerie-black/50 border border-primary/20 px-4 py-3 text-champagne placeholder-champagne/30 focus:border-primary focus:outline-none transition-colors"
+                  placeholder="your@email.com"
+                />
+              </div>
+            </div>
+            <div className="mb-4">
+              <label htmlFor="subject" className="block text-champagne/70 text-sm mb-2">
+                Subject
+              </label>
+              <select
+                id="subject"
+                value={formData.subject}
+                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                className="w-full bg-eerie-black/50 border border-primary/20 px-4 py-3 text-champagne focus:border-primary focus:outline-none transition-colors"
+              >
+                {subjectOptions.map((option) => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
+            </div>
+            <div className="mb-6">
+              <label htmlFor="message" className="block text-champagne/70 text-sm mb-2">
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows={6}
+                required
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full bg-eerie-black/50 border border-primary/20 px-4 py-3 text-champagne placeholder-champagne/30 focus:border-primary focus:outline-none transition-colors resize-none"
+                placeholder="How can we help you?"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full px-8 py-3 bg-eerie-black border border-primary text-primary font-medium tracking-wide hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* Contact Information */}
+      <section className="py-24 bg-secondary">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-champagne">
+              Contact Information
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {contactInfo.map((item) => (
+              <div key={item.title} className="glass-card p-8 text-center">
+                <div className="w-14 h-14 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
+                  <item.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-serif text-lg font-semibold text-champagne mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-champagne/50 text-sm mb-3">{item.subtitle}</p>
+                {item.href ? (
+                  <a href={item.href} className="text-primary hover:underline text-sm break-all">
+                    {item.value}
+                  </a>
+                ) : (
+                  <p className="text-champagne/70 text-sm">{item.value}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Follow Us */}
+      <section className="py-16 bg-background">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-serif text-2xl font-bold text-champagne mb-6">
+            Follow Us
+          </h2>
+          <div className="flex items-center justify-center gap-6 mb-6">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-5 h-5" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+              aria-label="Twitter"
+            >
+              <Twitter className="w-5 h-5" />
+            </a>
+          </div>
+          <p className="text-champagne/60 text-sm">
+            Stay connected with us on social media for the latest festival updates, behind-the-scenes content, and Arab cinema news.
+          </p>
+        </div>
+      </section>
+
+      {/* Department Contacts */}
+      <section className="py-24 bg-secondary">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-champagne">
+              Department Contacts
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {departmentContacts.map((dept) => (
+              <div key={dept.title} className="glass-card p-6">
+                <h3 className="font-serif text-base font-semibold text-champagne mb-2">
+                  {dept.title}
+                </h3>
+                <a href={`mailto:${dept.email}`} className="text-primary hover:underline text-sm">
+                  {dept.email}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  )
+}
+
