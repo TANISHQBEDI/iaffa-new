@@ -19,8 +19,8 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent border-0 shadow-none">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
@@ -60,7 +60,7 @@ export function Navigation() {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "lg:hidden absolute top-16 left-0 right-0 glass border-t border-primary/10 transition-all duration-300",
+          "lg:hidden absolute top-16 left-0 right-0 bg-eerie-black/70 border-0 shadow-none transition-all duration-300",
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}
       >
