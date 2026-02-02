@@ -9,7 +9,6 @@ const festivalLinks = [
 ]
 
 const resourceLinks = [
-  { label: "News & Blog", href: "/news" },
   { label: "Media & Press", href: "/contact" },
   { label: "Partners", href: "/oman-partnership" },
   { label: "FAQ", href: "/submissions#faq" },
@@ -27,7 +26,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div className="space-y-4">
-            <h3 className="font-serif text-2xl font-bold text-primary">IAFFA</h3>
+            <h3 className="font-serif text-2xl font-bold text-primary">AIFFA</h3>
             <p className="text-champagne/60 text-sm leading-relaxed">
               Celebrating the richness and diversity of Arab cinema in Australia.
             </p>

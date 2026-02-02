@@ -1,13 +1,6 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
-import { Trophy, Film, Camera } from "lucide-react"
-
-const stats = [
-  { value: "6", label: "Award Categories" },
-  { value: "15+", label: "Films Recognized" },
-  { value: "1", label: "Grand Prize Winner" },
-]
 
 const prizeCategories = [
   {
@@ -101,25 +94,13 @@ const juryPanel = [
   },
 ]
 
-const winners2024 = [
-  { category: "Best Feature Film", title: "The Last Dance", director: "Layla Hassan" },
-  { category: "Best Documentary", title: "Echoes of Sand", director: "Omar Khalil" },
-  { category: "Best Short Film", title: "Cairo Nights", director: "Sara Mansour" },
-]
-
-const winners2023 = [
-  { category: "Best Feature Film", title: "Desert Roads", director: "Ahmed Nasser" },
-  { category: "Best Documentary", title: "Threads of Memory", director: "Fatima Al-Qasimi" },
-  { category: "Best Short Film", title: "Between Two Shores", director: "Karim Rashid" },
-]
-
 export default function PrizesPage() {
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
+      <section className="relative pt-32 pb-2 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/ceremony-1.jpg"
@@ -141,19 +122,11 @@ export default function PrizesPage() {
       </section>
 
       {/* Overview */}
-      <section className="py-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-champagne/70 leading-relaxed text-center mb-12">
+      <section className="pt-2 pb-24 bg-background flex items-center min-h-[400px]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <p className="text-champagne/70 leading-relaxed text-center">
             The International Arab Film Festival of Australia recognizes outstanding achievements in filmmaking through our annual awards ceremony. Our awards celebrate the artistry, innovation, and cultural significance of Arab cinema, honoring filmmakers who push boundaries and tell compelling stories that resonate with audiences worldwide.
           </p>
-          <div className="grid grid-cols-3 gap-6">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center glass-card p-6">
-                <p className="font-serif text-3xl sm:text-4xl font-bold text-primary mb-2">{stat.value}</p>
-                <p className="text-champagne/60 text-sm">{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -213,49 +186,6 @@ export default function PrizesPage() {
                 <p className="text-champagne/60 text-sm">{member.bio}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Winners Archive */}
-      <section className="py-24 bg-secondary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-champagne">
-              Winners Archive
-            </h2>
-          </div>
-          
-          {/* 2024 Winners */}
-          <div className="mb-12">
-            <h3 className="font-serif text-2xl font-semibold text-primary mb-6">2024 Winners</h3>
-            <div className="space-y-4">
-              {winners2024.map((winner) => (
-                <div key={winner.title} className="glass-card p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                  <div>
-                    <p className="text-champagne/60 text-sm mb-1">{winner.category}</p>
-                    <p className="font-serif text-lg text-champagne">{winner.title}</p>
-                  </div>
-                  <p className="text-champagne/60 text-sm">Dir. {winner.director}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* 2023 Winners */}
-          <div>
-            <h3 className="font-serif text-2xl font-semibold text-primary mb-6">2023 Winners</h3>
-            <div className="space-y-4">
-              {winners2023.map((winner) => (
-                <div key={winner.title} className="glass-card p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                  <div>
-                    <p className="text-champagne/60 text-sm mb-1">{winner.category}</p>
-                    <p className="font-serif text-lg text-champagne">{winner.title}</p>
-                  </div>
-                  <p className="text-champagne/60 text-sm">Dir. {winner.director}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

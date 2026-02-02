@@ -33,11 +33,6 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
-        {/* Eyebrow Text */}
-        <p className="text-champagne/50 tracking-[0.3em] uppercase text-xs sm:text-sm mb-8 font-medium">
-          SYDNEY & MELBOURNE • OCT 12–28, 2026
-        </p>
-        
         {/* Main Heading */}
         <h1 
           className="font-libre-baskerville text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-8"

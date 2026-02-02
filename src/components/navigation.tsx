@@ -10,7 +10,6 @@ const navItems = [
   { label: "Submissions", href: "/submissions" },
   { label: "Prizes", href: "/prizes" },
   { label: "Membership", href: "/membership" },
-  { label: "News", href: "/news" },
   { label: "Oman Partnership", href: "/oman-partnership" },
   { label: "About", href: "/about" },
 ]
@@ -20,14 +19,25 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent border-0 shadow-none">
+      {/* Logo - Fixed at far left corner */}
+      <Link 
+        href="/" 
+        className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-20 flex items-center gap-2"
+      >
+        <span 
+          className="font-serif text-xl font-bold text-primary tracking-wide inline-block" 
+          style={{ 
+            transform: 'scale(1.82)',
+            transformOrigin: 'left center'
+          }}
+        >
+          AIFFA
+        </span>
+      </Link>
+      
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="font-serif text-xl font-bold text-primary tracking-wide">IAFFA</span>
-          </Link>
-
-          {/* Desktop Navigation */}
+        <div className="flex h-16 items-center justify-center">
+          {/* Desktop Navigation - Centered */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <Link
@@ -38,12 +48,6 @@ export function Navigation() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="ml-4 px-5 py-2 bg-primary text-primary-foreground text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors duration-200"
-            >
-              Contact
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -56,6 +60,14 @@ export function Navigation() {
           </button>
         </div>
       </div>
+
+      {/* Contact Button - Fixed at far right */}
+      <Link
+        href="/contact"
+        className="hidden lg:flex absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-20 px-5 py-2 bg-primary text-primary-foreground text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors duration-200"
+      >
+        Contact
+      </Link>
 
       {/* Mobile Navigation */}
       <div
