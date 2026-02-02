@@ -40,14 +40,18 @@ async function appendToSheet(data: SubmissionData) {
     data.category,
     data.filmDuration,
     data.originalLanguage,
-    data.englishSubtitles,
-    data.countryOfProduction,
-    data.yearOfCompletion,
-    data.genres,
-    data.actors.map(a => `${a.fullName} (${a.role})`).join('; '),
-    data.directors.map(d => `${d.fullName} (${d.role})`).join('; '),
-    data.producers.map(p => `${p.fullName} (${p.role})`).join('; '),
-    data.crew.map(c => `${c.fullName} - ${c.department}`).join('; '),
+    data.englishSubtitles || '',
+    data.countryOfProduction || '',
+    data.yearOfCompletion || '',
+    data.genres || '',
+    // Actors with all details
+    data.actors.map(a => `Name: ${a.fullName} | Role: ${a.role} | Bio: ${a.biography}`).join('\n\n'),
+    // Directors with all details
+    data.directors.map(d => `Name: ${d.fullName} | Role: ${d.role} | Bio: ${d.biography}`).join('\n\n'),
+    // Producers with all details
+    data.producers.map(p => `Name: ${p.fullName} | Role: ${p.role} | Bio: ${p.biography}`).join('\n\n'),
+    // Crew with all details
+    data.crew.map(c => `Name: ${c.fullName} | Department: ${c.department} | Bio: ${c.biography}`).join('\n\n'),
     data.rightsConfirmation ? 'Yes' : 'No',
     data.contentCleared ? 'Yes' : 'No',
     data.termsAgreement ? 'Yes' : 'No',
