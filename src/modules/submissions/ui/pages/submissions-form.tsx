@@ -125,7 +125,7 @@ export default function SubmissionsForm() {
                     type="text"
                     {...register('originalLanguage', { required: 'Language is required' })}
                     className="w-full px-4 py-3 bg-white/10 border border-champagne/20 rounded-lg text-champagne placeholder-champagne/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
-                    placeholder="e.g., Malay, English"
+                    placeholder="e.g., Arabic, English"
                   />
                   {errors.originalLanguage && <p className="text-red-400 text-xs mt-1">{errors.originalLanguage.message}</p>}
                 </div>
@@ -148,7 +148,7 @@ export default function SubmissionsForm() {
                     type="text"
                     {...register('countryOfProduction')}
                     className="w-full px-4 py-3 bg-white/10 border border-champagne/20 rounded-lg text-champagne placeholder-champagne/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
-                    placeholder="e.g., Malaysia"
+                    placeholder="e.g., Oman, UAE"
                   />
                 </div>
 

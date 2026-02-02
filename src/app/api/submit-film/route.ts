@@ -20,7 +20,7 @@ interface SubmissionData {
   termsAgreement: boolean
 }
 
-const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID
+const SPREADSHEET_ID = process.env.GOOGLE_SHEET_SUBMISSIONS_ID
 
 async function appendToSheet(data: SubmissionData) {
   const auth = new google.auth.GoogleAuth({

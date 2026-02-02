@@ -4,6 +4,7 @@ import { Inter, Playfair_Display, Libre_Baskerville } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Navigation } from "@/components/navigation"
 import './globals.css'
+import { Footer } from "@/components/footer"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <Navigation />
         {children}
+        <Footer/>
         <Analytics />
       </body>
     </html>
