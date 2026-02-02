@@ -16,7 +16,6 @@ export default function HomePage() {
       <PrizeCategoriesSection />
       <ExperienceCinemaSection />
       <BePartSection />
-      <Footer />
     </main>
   )
 }

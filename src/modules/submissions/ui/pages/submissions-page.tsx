@@ -1,5 +1,4 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Check, Calendar, ChevronDown, ChevronUp } from "lucide-react"
@@ -59,7 +58,6 @@ const selectionSteps = [
 export default function SubmissionsPage() {
   return (
     <main className="min-h-screen bg-background">
-      <Navigation />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 overflow-hidden">
@@ -198,8 +196,6 @@ export default function SubmissionsPage() {
           </Link>
         </div>
       </section>
-
-      <Footer />
     </main>
   )
 }
